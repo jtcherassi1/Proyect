@@ -85,6 +85,18 @@
         text-align: left;
         font-family: copperplate gothic;
       }
+      .dark-mode {
+  background-color: rgb(23, 27, 33);
+  color: whitesmoke;
+  border-color: #ffb5a6;
+}
+@media screen and (max-width: 768px) {
+        .contain {
+          width: 100%;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
     </style>
   </head>
   <body>
@@ -104,9 +116,21 @@
     <img id="kanji" src="images/kanji.JPG" alt="EDO kanji" title="Edo-Kanji" />
     <p>Edo Social Club</p>
     <div id="button">
-      <button>Reservations</button>
+      <button onclick="window.location.href='https://resy.com/?gclid=Cj0KCQjw0PWRBhDKARIsAPKHFGiMa1Ws97aasvafTUwSKMp0aIlUZND1PQ3AAdjjcfMsCQ5yzPACGKIaAiN1EALw_wcB&gclsrc=aw.ds&date=2022-04-29&seats=2';">
+        Reservations
+      </button>
     </div>
     <a id="sitemap" href="sitemap.html">Sitemap</a>
+
+<script>
+
+setTimeout(function background() {
+    
+    document.getElementById("five").style.backgroundColor = "#c44841";
+},1000);
+
+</script>
+
     <!--“I, Jose Tcherassi, pledge my honor that I have neither received nor provided unauthorized assistance during the completion of this work."-->
   </body>
 </html>
