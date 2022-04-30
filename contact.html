@@ -95,9 +95,22 @@ p{
         padding-top: 5pt;
         margin-top: 5pt;
       }
+      .dark-mode {
+  background-color: rgb(23, 27, 33);
+  color: whitesmoke;
+  border-color: #ffb5a6;
+}
+@media screen and (max-width: 800px) {
+        .contain {
+          width: 100%;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
 </style>
 </head>
 <body>
+  <div ondblclick="dark()">
     <ul>
         <li id="one"><a href="index.html">Home</a></li>
         <li id="two"><a href="about.html">About</a></li>
@@ -107,13 +120,14 @@ p{
         <li id="six"><a href="contact.html">Contact</a></li>
       </ul>
     <div id="form-background">
-      <form>
+      <form id="form-change" name="myForm" onsubmit="return validateForm()" method="post">
         <label for="Last Name">Last Name:</label>
         <input
           type="text"
           id="Last Name"
           maxlength="50"
           placeholder="Appleseed"
+          name="fname"
         />
       <br />
         <label for="Frst Name">First Name:</label>
@@ -142,12 +156,34 @@ p{
           </div>
       </div>
       <br>
-      <button type="Submit">Submit</button>
+      <button onclick="change_text()" type="Submit" value="Submit">Submit</button>
         <button type="Reset">Reset</button>
       </form>
-  <div id="button">
-      <button>Reservations</button>
-    </div>
+      <div id="button">
+        <button onclick="window.location.href='https://resy.com/?gclid=Cj0KCQjw0PWRBhDKARIsAPKHFGiMa1Ws97aasvafTUwSKMp0aIlUZND1PQ3AAdjjcfMsCQ5yzPACGKIaAiN1EALw_wcB&gclsrc=aw.ds&date=2022-04-29&seats=2';">
+          Reservations
+        </button>
+      </div>
+      </div>
     <a id="sitemap" href="sitemap.html">Sitemap</a>
+
+    <script>
+      function change_text(){
+          document.getElementById("form-change").innerHTML = "Thank you for your interest!";
+      }
+      function dark() {
+      const element = document.body;
+      element.classList.toggle("dark-mode");
+    }
+
+    function validateForm() {
+  let x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+      </script>
+
 </body>
 </html>
